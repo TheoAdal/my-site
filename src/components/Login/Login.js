@@ -1,5 +1,5 @@
-import React, { useState, useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; 
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom"; 
 import "./LoginWrapperComponent.css";
 
 import axios from "axios";
@@ -19,6 +19,8 @@ const LoginWrapperComponent = () => {
         password,
         // verified,
       });
+      localStorage.setItem('access_token', response.data.access_token)
+      navigate('/dashboard')
     } catch (error) {
       //window.alert('Wrong email or password')
       console.error("Authentication failed:", error);
@@ -36,7 +38,7 @@ const LoginWrapperComponent = () => {
       <div className="Auth-form-container">
         <form className="Auth-form" onSubmit={handleSubmit}>
           <div className="Auth-form-content">
-            <h3 className="Auth-form-title">Sign in</h3>
+            <h3 className="Auth-form-title">Log in</h3>
             <div className="form-group mt-3">
               <label>Email address</label>
               <input
@@ -58,13 +60,10 @@ const LoginWrapperComponent = () => {
               />
             </div>
             {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}{" "}
-            {/* <div className="form-group mt-2">
-              <div className="options">
-                Participate in our program as a{" "}
-                <a href="/volunteer">Volunteer</a> or a{" "}
-                <a href="/olduser">Beneficiary</a>
-              </div>
-            </div> */}
+            <div className="form-group mt-2">
+                Don't have an account? 
+                <Link to={'/register'}>Register</Link>
+            </div>
             <div className="d-grid gap-2 mt-3">
               <button
                 type="submit"

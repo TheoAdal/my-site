@@ -6,6 +6,7 @@ import About from "../About/About.js";
 import Contact from "../Contact/Contact.js";
 import Login from "../Login/Login.js";
 
+import "./ContentWrapper.css"
 
 function ContentWrapper() {
   return (

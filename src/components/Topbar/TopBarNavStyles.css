@@ -1,10 +1,12 @@
 nav {
   background-color: #333;
   padding: 10px 20px;
-  /* display: flex;
-  justify-content: flex-start;
-  align-items: center; */
-  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  /* position: fixed; */
   top: 0;
   left: 0;
   right: 0;
@@ -25,9 +27,9 @@ nav a:hover {
   color: #ff9900;
 }
 
-/* Optional: give body top padding so content isn't hidden under the fixed navbar */
-body {
+/* If you want the topbar to be fixed, uncomment the position in .nav and this below as well  */
+/* body {
   padding-top: 50px;
-}
+} */
 
 
