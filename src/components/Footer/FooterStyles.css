@@ -1,0 +1,61 @@
+.footer-container {
+  background-color: #262626;
+  width: 100%;
+  padding: 20px;
+  color: #fff;
+  /* // position: absolute;
+  // bottom: 0;
+  // border-top: 5px solid #28c0a9; */
+}
+
+.footer-content {
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #262626;
+}
+
+.company-info {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.name-address {
+  h4 {
+    margin: 0;
+  }
+
+  p {
+    color: #fff;
+    margin: 0;
+  }
+}
+
+.company-logo {
+  width: 80px; /* Adjust the logo size as needed */
+  margin: 10px;
+}
+
+.contact-info {
+  margin: 15px;
+  text-align: right;
+  p {
+    color: #fff;
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-info {
+    text-align: left;
+    margin-top: 10px;
+  }
+}

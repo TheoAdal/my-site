@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../Home/Home.js";
 import About from "../About/About.js";
 import Contact from "../Contact/Contact.js";
+import Login from "../Login/Login.js";
 
 
 function ContentWrapper() {
@@ -13,6 +14,7 @@ function ContentWrapper() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contact />} />
+        <Route exact path="/login" element={<Login />} />
       </Routes>
     </div>
   );

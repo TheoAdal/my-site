@@ -1,0 +1,33 @@
+nav {
+  background-color: #333;
+  padding: 10px 20px;
+  /* display: flex;
+  justify-content: flex-start;
+  align-items: center; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff9900;
+}
+
+/* Optional: give body top padding so content isn't hidden under the fixed navbar */
+body {
+  padding-top: 50px;
+}
+
+
