@@ -1,19 +1,42 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/authSlice";
+
 
 import "./TopBarNavStyles.css";
 
 export default function Topbar() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const user = useSelector((state) => state.auth.user);
+  // const user = useSelector((state) => state.auth.user);
 
-  const handleLogout = () => {
-    dispatch(logout());
+const handleLogout = async () => {
+    try {
+      const token = localStorage.getItem("access_token");
+
+      if (token) {
+        await axios.post(
+          "http://localhost:5000/api/post/user/logout",
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+      }
+    } catch (err) {
+      console.error("Error during logout:", err);
+      // Optional: show error to user
+    } finally {
+      dispatch(logout());
+      navigate("/login");
+    }
   };
 
   return (
