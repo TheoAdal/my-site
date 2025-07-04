@@ -1,6 +1,6 @@
 import React from "react";
 
-function About() {
+function AboutWrapperComponent() {
 
   return (
     <div className="">
@@ -9,4 +9,4 @@ function About() {
   );
 }
 
-export default About;
+export default AboutWrapperComponent;
