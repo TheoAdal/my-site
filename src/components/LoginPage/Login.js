@@ -3,9 +3,9 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 import { useDispatch } from "react-redux";
-import { login } from "../../redux/authSlice"; 
+import { login } from "../../Redux/authSlice"; 
 
-import "./LoginWrapperComponent.css";
+import "./Login.css";
 
 
 const LoginWrapperComponent = () => {

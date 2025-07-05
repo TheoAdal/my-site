@@ -1,8 +1,6 @@
-import { BrowserRouter } from "react-router-dom";
-
-import Topbar from "./components/Topbar/Topbar.js";
+import Topbar from "./Topbar/Topbar.js";
 import ContentWrapper from "./components/ContentWrapper/ContentWrapper.js";
-import Footer from "./components/Footer/Footer.js";
+import Footer from "./Footer/Footer.js";
 
 import "./App.css";
 
