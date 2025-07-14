@@ -29,7 +29,7 @@ function ContentWrapper() {
         <Route exact path="/login" element={<RedirectIfAuthenticated> <Login/> </RedirectIfAuthenticated>}/>
         <Route exact path="/register" element={<Register />}/>
         <Route exact path="/verify/:token" element={<UserVerification/>}/>
-        <Route exact path="/password-reset" element={<ResetPassword/>}/>
+        <Route exact path="/password-reset/:token" element={<ResetPassword/>}/>
         {/* Protected routes */}
         <Route
           path="/dashboard"
