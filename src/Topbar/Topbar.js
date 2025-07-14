@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Redux/authSlice";
 
-
 import "./TopBarNavStyles.css";
 
 export default function Topbar() {
@@ -15,7 +14,7 @@ export default function Topbar() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   // const user = useSelector((state) => state.auth.user);
 
-const handleLogout = async () => {
+  const handleLogout = async () => {
     try {
       const token = localStorage.getItem("access_token");
 
@@ -45,18 +44,19 @@ const handleLogout = async () => {
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
+
         {!isAuthenticated ? (
-          <Link to="/login">Login</Link>
-        ) : (
           <>
-            <button onClick={handleLogout}>Logout</button>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
           </>
+        ) : (
+          <button onClick={handleLogout}>Logout</button>
         )}
       </nav>
     </div>
   );
 }
-
 
 // {!isAuthenticated ? (
 //           <Link to="/login">Login</Link>
