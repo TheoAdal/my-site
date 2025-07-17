@@ -24,14 +24,16 @@ function ContentWrapper() {
   return (
     <div className="content-routes">
       <Routes>
+        {/* Public routes */}
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/about" element={<About />}/>
         <Route exact path="/contact" element={<Contact/>}/>
+        {/* Public routes but cannot be accessed by authenticated users */}
         <Route exact path="/login" element={<RedirectIfAuthenticated> <Login/> </RedirectIfAuthenticated>}/>
-        <Route exact path="/register" element={<Register />}/>
-        <Route exact path="/verify/:token" element={<UserVerification/>}/>
-        <Route exact path="/forgot-password" element={<ForgotPassword/>}/>
-        <Route exact path="/reset-password/:token" element={<ResetPassword/>}/>
+        <Route exact path="/register" element={<RedirectIfAuthenticated> <Register /> </RedirectIfAuthenticated>}/>
+        <Route exact path="/verify/:token" element={<RedirectIfAuthenticated> <Register /> </RedirectIfAuthenticated>}/>
+        <Route exact path="/forgot-password" element={<RedirectIfAuthenticated> <ForgotPassword/> </RedirectIfAuthenticated>}/>
+        <Route exact path="/reset-password/:token" element={<RedirectIfAuthenticated> <ResetPassword/> </RedirectIfAuthenticated>}/>
         {/* Protected routes */}
         <Route
           path="/dashboard"
