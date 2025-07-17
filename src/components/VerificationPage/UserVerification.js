@@ -11,7 +11,7 @@ const UserVerification = () => {
     const verifyEmail = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/getroutes/verify?token=${token}`
+          `http://localhost:5000/tokenbasedroutes/verify?token=${token}`
         );
 
         if (res.status === 200) {

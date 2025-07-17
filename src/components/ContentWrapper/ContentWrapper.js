@@ -8,12 +8,13 @@ import Login from "../LoginPage/Login.js";
 import Register from "../RegisterPage/Register.js";
 
 import UserVerification from "../VerificationPage/UserVerification.js"
+import ForgotPassword from "../PasswordResetPage/ForgotPassword.js"
 import ResetPassword from "../PasswordResetPage/ResetPassword.js"
 
 //Protected Routes
 import Dashboard from "../../auth-components/Dashboard/Dashboard.js";
 
-
+//Auth Logic
 import RedirectIfAuthenticated from "../../Redux/RedirectIfAuthenticated";
 import PrivateRoute from "../../Redux/PrivateRoute.js";
 
@@ -29,7 +30,8 @@ function ContentWrapper() {
         <Route exact path="/login" element={<RedirectIfAuthenticated> <Login/> </RedirectIfAuthenticated>}/>
         <Route exact path="/register" element={<Register />}/>
         <Route exact path="/verify/:token" element={<UserVerification/>}/>
-        <Route exact path="/password-reset/:token" element={<ResetPassword/>}/>
+        <Route exact path="/forgot-password" element={<ForgotPassword/>}/>
+        <Route exact path="/reset-password/:token" element={<ResetPassword/>}/>
         {/* Protected routes */}
         <Route
           path="/dashboard"

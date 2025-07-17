@@ -106,7 +106,7 @@ const LoginWrapperComponent = () => {
               </button>
             </div>
             <div className="options">
-              Forgot your <a href="/forgotpassword">password?</a>
+              Forgot your <a href="/forgot-password">password?</a>
             </div>
           </div>
         </form>

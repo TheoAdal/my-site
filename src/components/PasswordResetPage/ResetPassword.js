@@ -1,50 +1,78 @@
-// import React, { useState } from "react";
-// import axios from "axios";
+import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 // import "./PasswordPage.scss";
 
-// const ForgotPassword = () => {
-//   const [email, setEmail] = useState("");
-//   const [message, setMessage] = useState("");
+const ResetPassword = () => {
+  const { token } = useParams(); // token from URL
+  const navigate = useNavigate();
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try{const response = await axios.post(
-//       "https://graduate-back-end.onrender.com/users/forgot-password",
-//       { email }
-//     );
-//     alert("An email has been sent to you, please check your inbox!");
-//     setMessage(response.data.message);
-//   } catch (error) {
-//     // alert("Failed to sent email.");
-//     if (error.response && error.response.status === 404) {
-//       alert("There is no account with this email address");
-//     } else {
-//       alert("An error occurred. Please try again later.");
-//     }
-// }
-    
-//   };
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
-//   return (
-//     <div className="verification-container">
-//       <form className="verification-windown" onSubmit={handleSubmit}>
-//           <h2>Forgot Your Password?</h2>
-//           <label>Email:</label>
-//           <input
-//             type="email"
-//             required
-//             value={email}
-//             className=""
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-//           <button type="submit" className="green_btn">
-//             Send Reset Link
-//           </button>
-        
-//       </form>
-//       {message && <p>{message}</p>}
-//     </div>
-//   );
-// };
+  const handleReset = async (e) => {
+    e.preventDefault();
+    setMessage("");
+    setError("");
 
-// export default ForgotPassword;
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    try {
+      const response = await axios.patch(
+        `http://localhost:5000/tokenbasedroutes/reset-password/${token}`,
+        { password }
+      );
+
+      setMessage(response.data.text || "Password has been reset.");
+      setPassword("");
+      setConfirmPassword("");
+
+      // Redirect to login after a delay
+      setTimeout(() => navigate("/login"), 2000);
+    } catch (err) {
+      console.error("Reset error:", err);
+      setError(
+        err.response?.data?.message ||
+          "Reset failed. Link may be invalid or expired."
+      );
+    }
+  };
+
+  return (
+    <div className="verification-container">
+      <form className="verification-windown" onSubmit={handleReset}>
+        <h2>Reset Your Password</h2>
+
+        <label>New Password:</label>
+        <input
+          type="password"
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <label>Confirm New Password:</label>
+        <input
+          type="password"
+          required
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+
+        <button type="submit" className="green_btn">
+          Reset Password
+        </button>
+
+        {message && <p className="success-message">{message}</p>}
+        {error && <p className="error-message">{error}</p>}
+      </form>
+    </div>
+  );
+};
+
+export default ResetPassword;
