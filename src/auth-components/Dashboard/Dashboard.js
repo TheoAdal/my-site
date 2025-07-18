@@ -30,7 +30,7 @@ function Dashboard() {
   return (
     <div>
       <h1>IN DASHBOARD</h1>
-      <h3>Fetched users from /getall route</h3>
+      <h3>Fetched users from protected route: `/api/get/user/getall`</h3>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {users.length === 0 ? (
         <p>No users found.</p>

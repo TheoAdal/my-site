@@ -14,6 +14,7 @@ import ResetPassword from "../PasswordResetPage/ResetPassword.js"
 //Protected Routes
 import Dashboard from "../../auth-components/Dashboard/Dashboard.js";
 import Profile from "../../auth-components/Profile/Profile.js";
+import EditProfile from "../../auth-components/Profile/EditProfile.js";
 
 //Auth Logic
 import RedirectIfAuthenticated from "../../Redux/RedirectIfAuthenticated";
@@ -38,6 +39,7 @@ function ContentWrapper() {
         {/* Protected routes */}
         <Route path="/dashboard" element={<PrivateRoute> <Dashboard/> </PrivateRoute>}/>
         <Route path="/profile/:username" element={<PrivateRoute> <Profile/> </PrivateRoute>}/>
+        <Route path="/edit-profile/:username" element={<PrivateRoute> <EditProfile/> </PrivateRoute>} />
       </Routes>
     </div>
   );

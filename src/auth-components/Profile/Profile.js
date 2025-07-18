@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import axios from "axios";
-// import "./Profile.scss";
+
 
 const Profile = () => {
   const { username } = useParams();
+  const user = useSelector((state) => state.auth.user);
   const [profile, setProfile] = useState(null);
   const [error, setError] = useState("");
 
@@ -41,7 +44,7 @@ const Profile = () => {
       {profile.isOwner && (
         <>
           <p><strong>Email:</strong> {profile.email}</p>
-          <button className="edit-btn">Edit Profile</button>
+          <Link to={`/edit-profile/${user.username}`}>Edit Profile</Link>
         </>
       )}
     </div>
