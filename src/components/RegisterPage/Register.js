@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
 function Register() {
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [form, setForm] = useState({ name: "", username: "", email: "", password: "", confirmPassword: "", });
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -15,17 +15,27 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    //Password validation
+    if (form.password !== form.confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
     try {
       const res = await axios.post("http://localhost:5000/postroutes/user/register", form);
       setMessage(res.data.message);
-      setForm({ name: "", email: "", password: "" });
+      setForm({ name: "", username: "", email: "", password: "" });
 
       // Redirect after success (optional)
       setTimeout(() => navigate("/login"), 3000);
     } catch (err) {
       if (err.response?.status === 409) {
         setError("Email is already registered.");
-      } else {
+      } else if (err.response?.status === 410) {
+        setError("Username is already taken.");
+      }
+        else {
         setError("Registration failed. Please try again.");
       }
     }
@@ -36,7 +46,6 @@ function Register() {
       <form className="Auth-form" onSubmit={handleSubmit}>
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Register</h3>
-
           <div className="form-group mt-3">
             <label>Name</label>
             <input
@@ -49,7 +58,18 @@ function Register() {
               required
             />
           </div>
-
+          <div className="form-group mt-3">
+            <label>Username</label>
+            <input
+              type="text"
+              name="username"
+              value={form.username}
+              onChange={handleChange}
+              className="form-control mt-1"
+              placeholder="Enter your unique username"
+              required
+            />
+          </div>
           <div className="form-group mt-3">
             <label>Email</label>
             <input
@@ -62,7 +82,6 @@ function Register() {
               required
             />
           </div>
-
           <div className="form-group mt-3">
             <label>Password</label>
             <input
@@ -75,10 +94,20 @@ function Register() {
               required
             />
           </div>
-
+          <div className="form-group mt-3">
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              value={form.confirmPassword}
+              onChange={handleChange}
+              className="form-control mt-1"
+              placeholder="Confirm password"
+              required
+            />
+          </div>
           {error && <p style={{ color: "red" }}>{error}</p>}
           {message && <p style={{ color: "green" }}>{message}</p>}
-
           <div className="d-grid gap-2 mt-3">
             <button type="submit" className="btn btn-primary">
               Register

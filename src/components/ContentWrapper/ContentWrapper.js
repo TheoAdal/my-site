@@ -13,6 +13,7 @@ import ResetPassword from "../PasswordResetPage/ResetPassword.js"
 
 //Protected Routes
 import Dashboard from "../../auth-components/Dashboard/Dashboard.js";
+import Profile from "../../auth-components/Profile/Profile.js";
 
 //Auth Logic
 import RedirectIfAuthenticated from "../../Redux/RedirectIfAuthenticated";
@@ -31,13 +32,12 @@ function ContentWrapper() {
         {/* Public routes but cannot be accessed by authenticated users */}
         <Route exact path="/login" element={<RedirectIfAuthenticated> <Login/> </RedirectIfAuthenticated>}/>
         <Route exact path="/register" element={<RedirectIfAuthenticated> <Register /> </RedirectIfAuthenticated>}/>
-        <Route exact path="/verify/:token" element={<RedirectIfAuthenticated> <Register /> </RedirectIfAuthenticated>}/>
+        <Route exact path="/verify/:token" element={<RedirectIfAuthenticated> <UserVerification /> </RedirectIfAuthenticated>}/>
         <Route exact path="/forgot-password" element={<RedirectIfAuthenticated> <ForgotPassword/> </RedirectIfAuthenticated>}/>
         <Route exact path="/reset-password/:token" element={<RedirectIfAuthenticated> <ResetPassword/> </RedirectIfAuthenticated>}/>
         {/* Protected routes */}
-        <Route
-          path="/dashboard"
-          element={<PrivateRoute> <Dashboard/> </PrivateRoute>}/>
+        <Route path="/dashboard" element={<PrivateRoute> <Dashboard/> </PrivateRoute>}/>
+        <Route path="/profile/:username" element={<PrivateRoute> <Profile/> </PrivateRoute>}/>
       </Routes>
     </div>
   );

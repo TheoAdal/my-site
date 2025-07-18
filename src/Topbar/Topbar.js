@@ -12,7 +12,7 @@ export default function Topbar() {
   const navigate = useNavigate();
 
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  // const user = useSelector((state) => state.auth.user);
+  const user = useSelector((state) => state.auth.user); //user info from Redux
 
   const handleLogout = async () => {
     try {
@@ -51,7 +51,10 @@ export default function Topbar() {
             <Link to="/register">Register</Link>
           </>
         ) : (
+          <>
+          <Link to={`/profile/${user?.username}`}>Profile</Link>
           <button onClick={handleLogout}>Logout</button>
+          </>
         )}
       </nav>
     </div>

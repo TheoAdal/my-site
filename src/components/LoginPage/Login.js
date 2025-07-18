@@ -8,7 +8,7 @@ import { login } from "../../Redux/authSlice";
 import "./Login.css";
 
 
-const LoginWrapperComponent = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(null); //For handling error messages
@@ -115,4 +115,4 @@ const LoginWrapperComponent = () => {
   );
 };
 
-export default LoginWrapperComponent;
+export default Login;
