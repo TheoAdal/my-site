@@ -6,6 +6,7 @@ import About from "../AboutPage/About.js";
 import Contact from "../ContactPage/Contact.js";
 import Login from "../LoginPage/Login.js";
 import Register from "../RegisterPage/Register.js";
+import NotFound from "../ErrorPage/NotFound.js"
 
 import UserVerification from "../VerificationPage/UserVerification.js"
 import ForgotPassword from "../PasswordResetPage/ForgotPassword.js"
@@ -30,6 +31,7 @@ function ContentWrapper() {
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/about" element={<About />}/>
         <Route exact path="/contact" element={<Contact/>}/>
+        <Route path="*" element={<NotFound />} />
         {/* Public routes but cannot be accessed by authenticated users */}
         <Route exact path="/login" element={<RedirectIfAuthenticated> <Login/> </RedirectIfAuthenticated>}/>
         <Route exact path="/register" element={<RedirectIfAuthenticated> <Register /> </RedirectIfAuthenticated>}/>
