@@ -34,8 +34,8 @@ const EditProfile = () => {
 
     // Redirect if user is trying to edit someone else's profile
   if (user.username !== paramUsername) {
-    return <Navigate to={`/about`} replace />;
-  }
+    return <Navigate to="*" replace />;
+}
 
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -32,6 +32,7 @@ function ContentWrapper() {
         <Route exact path="/about" element={<About />}/>
         <Route exact path="/contact" element={<Contact/>}/>
         <Route path="*" element={<NotFound />} />
+        
         {/* Public routes but cannot be accessed by authenticated users */}
         <Route exact path="/login" element={<RedirectIfAuthenticated> <Login/> </RedirectIfAuthenticated>}/>
         <Route exact path="/register" element={<RedirectIfAuthenticated> <Register /> </RedirectIfAuthenticated>}/>
