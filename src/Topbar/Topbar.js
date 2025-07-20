@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Redux/authSlice";
 
+import { persistor } from "../Redux/store";
+
 import "./TopBarNavStyles.css";
 
 export default function Topbar() {
@@ -13,6 +15,8 @@ export default function Topbar() {
 
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const user = useSelector((state) => state.auth.user); //user info from Redux
+
+  
 
   const handleLogout = async () => {
     try {
@@ -33,7 +37,9 @@ export default function Topbar() {
       console.error("Error during logout:", err);
       // Optional: show error to user
     } finally {
+      // dispatch(logout());
       dispatch(logout());
+      persistor.purge();
       navigate("/login");
     }
   };

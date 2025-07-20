@@ -20,7 +20,6 @@ const EditProfile = () => {
   });
 
 
-
   useEffect(() => {
     if (user) {
       setFormData({
@@ -32,8 +31,10 @@ const EditProfile = () => {
     }
   }, [user]);
 
+  if (!user) return null;
+
     // Redirect if user is trying to edit someone else's profile
-  if (user.username !== paramUsername) {
+  if (user && user.username !== paramUsername) {
     return <Navigate to="*" replace />;
 }
 
@@ -57,7 +58,9 @@ const EditProfile = () => {
         }
       );
 
-      dispatch(setUser(response.data)); // Update Redux store with the new info
+      if (response.data?.user?._id === user._id) { // Update Redux store with the new info
+        dispatch(setUser(response.data.user));
+      } 
       alert("Profile updated successfully");
     } catch (err) {
       console.error("Profile update error:", err);
