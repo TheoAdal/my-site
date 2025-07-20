@@ -13,7 +13,13 @@ const authSlice = createSlice({
     login: (state, action) => {
       state.isAuthenticated = true;
       state.token = action.payload.token;
-      state.user = action.payload.user;
+      const user = action.payload.user;
+      state.user = {
+        id: user.id || user._id,
+        name: user.name,
+        username: user.username,
+        email: user.email,
+      };
       localStorage.setItem("access_token", action.payload.token);
     },
     logout: (state) => {
@@ -23,7 +29,13 @@ const authSlice = createSlice({
       localStorage.removeItem("access_token");
     },
     setUser: (state, action) => {
-      state.user = action.payload;
+      const user = action.payload; 
+      state.user = {
+        id: user._id,
+        name: user.name,
+        username: user.username,
+        email: user.email,
+      };
     },
   },
 });

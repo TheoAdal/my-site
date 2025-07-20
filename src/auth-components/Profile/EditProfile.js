@@ -49,7 +49,7 @@ const EditProfile = () => {
       const { name, username } = formData;
 
       const response = await axios.patch(
-        `http://localhost:5000/api/patch/update/${user._id}`,
+        `http://localhost:5000/api/patch/update/${user.id}`,
         { name, username },
         {
           headers: {
@@ -58,9 +58,7 @@ const EditProfile = () => {
         }
       );
 
-      if (response.data?.user?._id === user._id) { // Update Redux store with the new info
-        dispatch(setUser(response.data.user));
-      } 
+      dispatch(setUser(response.data.user));
       alert("Profile updated successfully");
     } catch (err) {
       console.error("Profile update error:", err);
