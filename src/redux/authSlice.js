@@ -31,10 +31,10 @@ const authSlice = createSlice({
     setUser: (state, action) => {
       const user = action.payload; 
       state.user = {
-        id: user._id,
+        id: user.id || user._id || state.user?.id,
         name: user.name,
         username: user.username,
-        email: user.email,
+        email: user.email || state.user?.email, 
       };
     },
   },

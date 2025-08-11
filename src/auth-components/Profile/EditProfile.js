@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useParams, Navigate } from "react-router-dom";
+import { Link, useParams, Navigate, useNavigate  } from "react-router-dom";
 
 import axios from "axios";
 
@@ -9,6 +9,8 @@ import { setUser } from "../../Redux/authSlice";
 const EditProfile = () => {
   const dispatch = useDispatch();
   const { username: paramUsername } = useParams();
+  const navigate = useNavigate();
+  const [justUpdated, setJustUpdated] = useState(false);
 
   const { user, token } = useSelector((state) => state.auth);
 
@@ -34,7 +36,7 @@ const EditProfile = () => {
   if (!user) return null;
 
     // Redirect if user is trying to edit someone else's profile
-  if (user && user.username !== paramUsername) {
+  if (!justUpdated && user && user.username !== paramUsername) {
     return <Navigate to="*" replace />;
 }
 
@@ -59,7 +61,9 @@ const EditProfile = () => {
       );
 
       dispatch(setUser(response.data.user));
+      setJustUpdated(true); // Ignore ownership check for this render
       alert("Profile updated successfully");
+      navigate(`/edit-profile/${username}`);
     } catch (err) {
       console.error("Profile update error:", err);
       alert("Failed to update profile");
