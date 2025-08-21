@@ -1,4 +1,4 @@
-nav {
+.top-nav {
   background-color: #333;
   padding: 10px;
   display: flex;
@@ -15,6 +15,18 @@ nav {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+.center-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.right-nav {
+  position: absolute;
+  right: 1rem; /* stick to right */
+  /* display: flex; */
+  gap: 1rem;
+}
+
 nav a {
   color: white;
   text-decoration: none;
@@ -26,6 +38,8 @@ nav a {
 nav a:hover {
   color: #ff9900;
 }
+
+
 
 /* If you want the topbar to be fixed, uncomment the position in .nav and this below as well  */
 /* body {

@@ -8,17 +8,17 @@ import LogoutButton from "../auth-components/Logout.js";
 import "./TopBarNavStyles.css";
 
 export default function Topbar() {
-
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const user = useSelector((state) => state.auth.user); //user info from Redux
 
   return (
     <div>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-
+      <nav className="top-nav">
+        <div className="center-nav">
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
+        </div>
         {!isAuthenticated ? (
           <>
             <Link to="/login">Login</Link>
@@ -26,9 +26,11 @@ export default function Topbar() {
           </>
         ) : (
           <>
-          <Link to="/dashboard">Dashboard</Link>
-          <Link to={`/profile/${user?.username}`}>Profile</Link>
-          <LogoutButton>Logout</LogoutButton>
+            <Link to="/dashboard">Dashboard</Link>
+            <div className="right-nav">
+              <Link to={`/profile/${user?.username}`}>Profile</Link>
+              <LogoutButton>Logout</LogoutButton>
+            </div>
           </>
         )}
       </nav>
