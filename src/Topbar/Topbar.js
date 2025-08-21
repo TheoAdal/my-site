@@ -1,48 +1,16 @@
 import React from "react";
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../Redux/authSlice";
+import { useSelector } from "react-redux";
 
-import { persistor } from "../Redux/store";
+import LogoutButton from "../auth-components/Logout.js";
 
 import "./TopBarNavStyles.css";
 
 export default function Topbar() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const user = useSelector((state) => state.auth.user); //user info from Redux
-
-  
-
-  const handleLogout = async () => {
-    try {
-      const token = localStorage.getItem("access_token");
-
-      if (token) {
-        await axios.post(
-          "http://localhost:5000/api/post/user/logout",
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-      }
-    } catch (err) {
-      console.error("Error during logout:", err);
-      // Optional: show error to user
-    } finally {
-      // dispatch(logout());
-      dispatch(logout());
-      persistor.purge();
-      navigate("/login");
-    }
-  };
 
   return (
     <div>
@@ -58,21 +26,12 @@ export default function Topbar() {
           </>
         ) : (
           <>
+          <Link to="/dashboard">Dashboard</Link>
           <Link to={`/profile/${user?.username}`}>Profile</Link>
-          <button onClick={handleLogout}>Logout</button>
+          <LogoutButton>Logout</LogoutButton>
           </>
         )}
       </nav>
     </div>
   );
 }
-
-// {!isAuthenticated ? (
-//           <Link to="/login">Login</Link>
-//         ) : (
-//           <>
-//             {/* Optionally show user name */}
-//             {/* {user && <span style={{ marginRight: "10px" }}>Hi, {user.name || user.email}</span>} */}
-//             <button onClick={handleLogout}>Logout</button>
-//           </>
-//         )}
