@@ -2,6 +2,7 @@ import Topbar from "./Topbar/Topbar.js";
 import ContentWrapper from "./components/ContentWrapper/ContentWrapper.js";
 import Footer from "./Footer/Footer.js";
 
+import "nes.css/css/nes.min.css";
 import "./App.css";
 
 function App() {

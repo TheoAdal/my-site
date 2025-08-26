@@ -15,14 +15,14 @@ export default function Topbar() {
     <div>
       <nav className="top-nav">
         <div className="center-nav">
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
+          <Link className="nes-text is-primary" to="/">Home</Link>
+          <Link className="nes-text is-success" to="/about">About</Link>
+          <Link className="nes-text is-warning" to="/contact">Contact</Link>
         </div>
         {!isAuthenticated ? (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            <Link className="nes-text is-error" to="/login">Login</Link>
+            <Link className="nes-text is-error" to="/register">Register</Link>
           </>
         ) : (
           <>
