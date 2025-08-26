@@ -6,7 +6,7 @@ function Footer() {
     <div className="footer-content">
       <div className="company-info">
         <div className="name-address flex flex-col items-start">
-          <h4>Architect</h4>
+          <p>Architect</p>
           <p>Rohn Str. 92</p>
         </div>
       </div>
