@@ -4,7 +4,7 @@ function Contact() {
 
   return (
     <div className="">
-      <h1>IN CONTACT</h1>
+      <h1 className="nes-text is-warning">IN CONTACT</h1>
     </div>
   );
 }

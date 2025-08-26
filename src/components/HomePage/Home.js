@@ -4,7 +4,7 @@ import "./Home.css";
 function Home() {
   return (//<div className="nes-container is-centered with-title" style={{ margin: "2rem" }}>
     <div>
-      <p className="title">Title Text</p>
+      {/* <p className="title">Title Text</p> */}
       <h1 className="nes-text is-primary">IN HOMEPAGE</h1>
       <div className="page-wrap">
         <div className="nes-container is-dark is-centered nes-card"> 

@@ -4,7 +4,7 @@
   align-items: center;
   padding: 4rem 2rem;
   min-height: 80vh;
-  background-color: #f1f1f100;
+  background-color: #d31f1fd2;
 }
 
 .Auth-form {
@@ -12,8 +12,8 @@
   padding: 2rem 2.5rem;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
-  width: 100%;
-  max-width: 400px;
+  max-width: 400px;   /* NES.css sweet spot */
+  min-height: 599px;
 
   .Auth-form-title {
     text-align: center;
@@ -21,6 +21,16 @@
     color: #000000;
     margin-bottom: 1.5rem;
   }
+  .input-field{
+    margin-bottom:20px;
+    
+    .input{
+    width: 328px;
+    height: 68px;
+    }
+  }
+  
+
 
   .form-group {
     color:#000000;
@@ -50,12 +60,8 @@
   }
 
   .btn-primary {
-    background-color: #68b694;
-    border-color: #68b694;
-
-    &:hover {
-      background-color: #b3e0d2;
-      border-color: #b3e0d2;
-    }
+    width: 200px;
+    height: 60px;
+    margin: 20px;
   }
 }

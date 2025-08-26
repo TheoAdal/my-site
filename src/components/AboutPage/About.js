@@ -4,7 +4,7 @@ function About() {
 
   return (
     <div className="">
-      <h1>IN ABOUT</h1>
+      <h1 className="nes-text is-success">IN ABOUT</h1>
     </div>
   );
 }

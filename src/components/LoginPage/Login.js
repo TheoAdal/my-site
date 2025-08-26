@@ -3,10 +3,9 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 import { useDispatch } from "react-redux";
-import { login } from "../../Redux/authSlice"; 
+import { login } from "../../Redux/authSlice";
 
 import "./Login.css";
-
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -30,7 +29,7 @@ const Login = () => {
           password,
         }
       );
-      
+
       const { access_token, user } = response.data;
       const token = response?.data?.access_token;
 
@@ -64,54 +63,61 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div className="Auth-form-container">
-        <form className="Auth-form" onSubmit={handleSubmit}>
-          <div className="Auth-form-content">
-            <h3 className="Auth-form-title">Log in</h3>
-            <div className="form-group mt-3">
-              <label>Email address</label>
-              <input
-                type="email"
-                value={email}
-                className="form-control mt-1"
-                placeholder="Enter email"
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div className="form-group mt-3">
-              <label>Password</label>
-              <input
-                type="password"
-                value={password}
-                className="form-control mt-1"
-                placeholder="Enter password"
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}{" "}
-            <div className="form-group mt-2">
-              Don't have an account?
-              <Link to={"/register"}>Register</Link>
-            </div>
-            <div className="d-grid gap-2 mt-3">
-              <button
-                type="submit"
-                className="btn btn-primary"
-                disabled={loading}
-              >
-                {loading ? "Logging in..." : "Log In"}
-              </button>
-            </div>
-            <div className="options">
-              <a href="/forgot-password">Forgot your password?</a>
-            </div>
+    // <div className="Auth-form-container">
+    <form
+      className="nes-container is-centered Auth-form"
+      onSubmit={handleSubmit}
+    >
+      <div className="Auth-form-content">
+        <h3 className="Auth-form-title">Log in</h3>
+        <div className="input-field">
+          <div className="nes-field">
+            {/* <label>Email address</label> */}
+            <input
+              id="email_field"
+              type="email"
+              value={email}
+              className="nes-input input"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
           </div>
-        </form>
+        </div>
+        <div className="input-field">
+          <div className="nes-field">
+            {/* <label>Password</label> */}
+            <input
+              id="password_field"
+              type="password"
+              value={password}
+              className="nes-input input"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+        </div>
+        <div className="d-grid gap-2 mt-3">
+          <button
+            type="submit"
+            className="nes-btn is-success btn-primary"
+            disabled={loading}
+          >
+            {loading ? "Logging in..." : "Log In"}
+          </button>
+        </div>
+        {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}{" "}
+        <div className="form-group mt-2">
+          Don't you have an account?
+          <Link to={"/register"}>Register</Link>
+        </div>
+        <div className="options">
+          <a href="/forgot-password">Forgot your password?</a>
+        </div>
       </div>
-    </div>
+    </form>
+    // </div>
   );
 };
 
