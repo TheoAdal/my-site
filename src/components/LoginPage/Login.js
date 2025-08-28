@@ -98,7 +98,6 @@ const Login = () => {
             />
           </div>
         </div>
-        <div className="d-grid gap-2 mt-3">
           <button
             type="submit"
             className="nes-btn is-success btn-primary"
@@ -106,11 +105,10 @@ const Login = () => {
           >
             {loading ? "Logging in..." : "Log In"}
           </button>
-        </div>
         {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}{" "}
         <div className="form-group mt-2">
           Don't you have an account?
-          <Link to={"/register"}>Register</Link>
+          <a href="/register"> Register</a>
         </div>
         <div className="options">
           <a href="/forgot-password">Forgot your password?</a>

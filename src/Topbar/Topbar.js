@@ -12,7 +12,6 @@ export default function Topbar() {
   const user = useSelector((state) => state.auth.user); //user info from Redux
 
   return (
-    <div>
       <nav className="top-nav">
         <div className="center-nav">
           <Link className="nes-text is-primary" to="/">Home</Link>
@@ -34,6 +33,5 @@ export default function Topbar() {
           </>
         )}
       </nav>
-    </div>
   );
 }
