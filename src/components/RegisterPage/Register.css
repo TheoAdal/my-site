@@ -63,12 +63,13 @@
   }
 
   .btn-primary {
-    width: 200px;
+    width: 240px; /*Nes containers or buttons must have a pixel number that is a multiple of (Example: 216 or 220)*/
     height: 60px;
     margin: 20px;
 
     a {
-        margin-left:-4px;
+      font-size: 1.4rem;
+        /* margin-left:-4px; */
     }
   }
 }
