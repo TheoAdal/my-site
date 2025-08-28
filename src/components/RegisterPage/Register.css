@@ -1,4 +1,4 @@
-.Auth-form-container {
+.Register-form-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   background-color: #d31f1fd2;
 }
 
-.Auth-form {
+.Register-form {
   background-color: #fff;
   padding: 2rem 2.5rem;
   border-radius: 10px;
@@ -15,7 +15,7 @@
   max-width: 400px;   /* NES.css sweet spot */
   min-height: 500px;
 
-  .Auth-form-title {
+  .Register-form-title {
     text-align: center;
     font-size: 1.8rem;
     color: #000000;
@@ -25,13 +25,12 @@
     margin-bottom:20px;
     
     .input{
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     width: 320px;
     height: 68px;
     }
   }
   
-
 
   .form-group {
     color:#000000;
@@ -55,10 +54,11 @@
   .options {
     margin-top: 0rem;
     text-align: center;
-
+    color:#000000;
+    font-size: 0.80rem;
     a {
       text-decoration: underline;
-      font-size: 0.80rem;
+      /* font-size: 0.80rem; */
     }
   }
 
@@ -66,5 +66,9 @@
     width: 200px;
     height: 60px;
     margin: 20px;
+
+    a {
+        margin-left:-4px;
+    }
   }
 }

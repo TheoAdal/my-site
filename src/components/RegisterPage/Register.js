@@ -2,8 +2,16 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
+import "./Register.css";
+
 function Register() {
-  const [form, setForm] = useState({ name: "", username: "", email: "", password: "", confirmPassword: "", });
+  const [form, setForm] = useState({
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -23,7 +31,10 @@ function Register() {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/postroutes/user/register", form);
+      const res = await axios.post(
+        "http://localhost:5000/postroutes/user/register",
+        form
+      );
       setMessage(res.data.message);
       setForm({ name: "", username: "", email: "", password: "" });
 
@@ -34,92 +45,94 @@ function Register() {
         setError("Email is already registered.");
       } else if (err.response?.status === 410) {
         setError("Username is already taken.");
-      }
-        else {
+      } else {
         setError("Registration failed. Please try again.");
       }
     }
   };
 
   return (
-    <div className="Auth-form-container">
-      <form className="Auth-form" onSubmit={handleSubmit}>
-        <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Register</h3>
-          <div className="form-group mt-3">
-            <label>Name</label>
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              className="form-control mt-1"
-              placeholder="Enter your name"
-              required
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Username</label>
-            <input
-              type="text"
-              name="username"
-              value={form.username}
-              onChange={handleChange}
-              className="form-control mt-1"
-              placeholder="Enter your unique username"
-              required
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              className="form-control mt-1"
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              value={form.password}
-              onChange={handleChange}
-              className="form-control mt-1"
-              placeholder="Enter password"
-              required
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Confirm Password</label>
-            <input
-              type="password"
-              name="confirmPassword"
-              value={form.confirmPassword}
-              onChange={handleChange}
-              className="form-control mt-1"
-              placeholder="Confirm password"
-              required
-            />
-          </div>
-          {error && <p style={{ color: "red" }}>{error}</p>}
-          {message && <p style={{ color: "green" }}>{message}</p>}
-          <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
-              Register
-            </button>
-          </div>
-
-          <div className="form-group mt-2">
-            Already have an account? <Link to="/login">Login</Link>
-          </div>
+    // <div className="Register-form-container">
+    <form
+      className="nes-container is-centered Register-form"
+      onSubmit={handleSubmit}
+    >
+      <div className="Register-form-content">
+        <h3 className="Register-form-title">Register</h3>
+        <div className="input-field">
+          {/* <label>Name</label> */}
+          <input
+            type="text"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            className="nes-input input"
+            placeholder="Name"
+            required
+          />
         </div>
-      </form>
-    </div>
+        <div className="input-field">
+          {/* <label>Username</label> */}
+          <input
+            type="text"
+            name="username"
+            value={form.username}
+            onChange={handleChange}
+            className="nes-input input"
+            placeholder="Username"
+            required
+          />
+        </div>
+        <div className="input-field">
+          {/* <label>Email</label> */}
+          <input
+            type="email"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            className="nes-input input"
+            placeholder="Email"
+            required
+          />
+        </div>
+        <div className="input-field">
+          {/* <label>Password</label> */}
+          <input
+            type="password"
+            name="password"
+            value={form.password}
+            onChange={handleChange}
+            className="nes-input input"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div className="input-field">
+          {/* <label>Confirm Password</label> */}
+          <input
+            type="password"
+            name="confirmPassword"
+            value={form.confirmPassword}
+            onChange={handleChange}
+            className="nes-input input"
+            placeholder="Confirm password"
+            required
+          />
+        </div>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        {message && <p style={{ color: "green" }}>{message}</p>}
+        <div className="d-grid gap-2 mt-3">
+          <button type="submit" className="nes-btn is-success btn-primary">
+            <a>Register</a>
+          </button>
+        </div>
+
+        <div className="options">
+          Already have an account? <Link to="/login">Login</Link>
+        </div>
+      </div>
+    </form>
+    // </div>
   );
 }
 
