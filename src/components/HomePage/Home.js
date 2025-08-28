@@ -5,7 +5,7 @@ function Home() {
   return (//<div className="nes-container is-centered with-title" style={{ margin: "2rem" }}>
     <div>
       {/* <p className="title">Title Text</p> */}
-      <h1 className="nes-text is-primary">GITHUB ACTION DEPLOYMENT</h1>
+      <h1 className="nes-text is-primary">Currently in local deployment</h1>
       <div className="page-wrap">
         <div className="nes-container is-dark is-centered nes-card"> 
           <p>
