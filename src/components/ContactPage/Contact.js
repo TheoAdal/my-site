@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import "./Contact.css";
+
+import axios from "axios";
 
 function Contact() {
   const [name, setName] = useState("");
@@ -16,19 +19,20 @@ function Contact() {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/postroutes/user/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, text }),
-      });
+      const response = await axios.post(
+        "http://localhost:5000/postroutes/user/contact",
+        {
+          name,
+          email,
+          text,
+        }
+      );
 
       const data = await response.json();
 
       if (response.ok) {
         setStatus({ type: "success", message: data.message });
-        // Reset form
+        //Reset form
         setName("");
         setEmail("");
         setText("");
@@ -42,53 +46,59 @@ function Contact() {
   };
 
   return (
-    <div className="contact-form-container">
-      <h1 className="nes-text is-warning">IN CONTACT</h1>
-
-      <form onSubmit={handleSubmit} className="nes-container is-rounded is-dark">
-        <div className="nes-field">
-          <input
-            type="text"
-            id="name"
-            placeholder="Name"
-            className="nes-input"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
+    <div>
+      <form onSubmit={handleSubmit} className="nes-container is-centered Contact-form">
+        <div className="Contact-form-content">
+          <h3 className="Contact-form-title">Contact</h3>
+          <div className="input-field">
+            <div className="nes-field">
+              <input
+                type="text"
+                id="name"
+                placeholder="Name"
+                className="nes-input input"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+          <div className="input-field">
+            <div className="nes-field">
+              <input
+                type="email"
+                id="email"
+                placeholder="Email"
+                className="nes-input input"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+          <div className="input-field">
+              <textarea
+                id="textarea_field"
+                placeholder="Message"
+                className="nes-textarea textarea"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                required
+              />
+          </div>
+          <button type="submit" className="nes-btn is-primary btn-primary">
+            Send
+          </button>
         </div>
-
-        <div className="nes-field">
-          <input
-            type="email"
-            id="email"
-            placeholder="Email"
-            className="nes-input"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-
-        <div className="nes-field">
-          <textarea
-            id="text"
-            placeholder="Message"
-            className="nes-textarea"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            required
-          />
-        </div>
-
-        <button type="submit" className="nes-btn is-primary">
-          Send
-        </button>
       </form>
 
       {status && (
         <p
-          className={status.type === "success" ? "nes-text is-success" : "nes-text is-error"}
+          className={
+            status.type === "success"
+              ? "nes-text is-success"
+              : "nes-text is-error"
+          }
         >
           {status.message}
         </p>
