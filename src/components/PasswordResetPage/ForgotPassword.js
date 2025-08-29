@@ -17,6 +17,7 @@ const ForgotPassword = () => {
         "http://localhost:5000/tokenbasedroutes/forgot-password",
         { email }
       );
+      console.log(response);
       setMessage("An email has been sent to you. Please check your inbox.");
     } catch (error) {
       if (error.response?.status === 404) {
