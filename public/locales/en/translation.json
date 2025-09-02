@@ -1,4 +1,14 @@
 {
+  "topbar": {
+    "home":"Home",
+    "about":"About",
+    "contact":"Contact",
+    "login":"Login",
+    "register":"Register",
+    "dashboard":"Dashboard",
+    "profile":"Profile",
+    "logout":"Logout"
+  },
   "home": {
     "welcome": "Hi there, I'm Theo!",
     "intro1": "Just another CS-related graduate trying his absolute best. My journey in FullStack Development began roughly in 2023 through academic projects and has evolved into something I am really proud of.",

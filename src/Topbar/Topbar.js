@@ -29,21 +29,21 @@ export default function Topbar() {
   return (
       <nav className="top-nav">
         <div className="center-nav">
-          <Link className="nes-text is-primary" to="/">Home</Link>
-          <Link className="nes-text is-success" to="/about">About</Link>
-          <Link className="nes-text is-warning" to="/contact">Contact</Link>
+          <Link className="nes-text is-primary" to="/">{t("topbar.home")}</Link>
+          <Link className="nes-text is-success" to="/about">{t("topbar.about")}</Link>
+          <Link className="nes-text is-warning" to="/contact">{t("topbar.contact")}</Link>
         </div>
         {!isAuthenticated ? (
           <>
-            <Link className="nes-text is-error" to="/login">Login</Link>
-            <Link className="nes-text is-error" to="/register">Register</Link>
+            <Link className="nes-text is-error" to="/login">{t("topbar.login")}</Link>
+            <Link className="nes-text is-error" to="/register">{t("topbar.register")}</Link>
           </>
         ) : (
           <>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/dashboard">{t("topbar.dashboard")}</Link>
             <div className="right-nav">
-              <Link to={`/profile/${user?.username}`}>Profile</Link>
-              <LogoutButton>Logout</LogoutButton>
+              <Link to={`/profile/${user?.username}`}>{t("topbar.profile")}</Link>
+              <LogoutButton>{t("topbar.logout")}</LogoutButton>
             </div>
           </>
         )}
