@@ -36,5 +36,9 @@
     "job2Company": "Piperaris Security Cyprus",
     "job2Bullet1": "Participated in KNX training sessions and gained hands-on experience with automation tools.",
     "job2Bullet2": "Configured, installed, and tested Electron switches, ensuring their proper functionality."
+  },
+  "error": {
+    "title": "Oops! That page can’t be found.",
+    "text": "The page you are looking for might have been removed, had its name changed or is temporarily unavailable."
   }
 }
