@@ -1,35 +1,30 @@
 import React from "react";
 import "./About.css"; // import styles
 
+import { useTranslation } from "react-i18next";
+
 function About() {
-  // usePixelPerfectContainers();
+  const { t } = useTranslation();
+
   return (
     <div className="about-wrap">
       <div className="nes-container is-rounded is-dark education-container ">
-        <h2 className="nes-text is-primary education-title">Education</h2>
+        <h2 className="nes-text is-primary education-title">
+          {t("education.title")}
+        </h2>
         <div className="education-text">
           <h3 className="nes-text is-success diploma-title">
-            Computer Engineering & Informatics
+            {t("education.degree")}
           </h3>
           <h3 className="nes-text is-error university-name">
-            Cyprus University of Technology
+            {t("education.university")}
           </h3>
           <ul className="nes-list is-circle">
             <li>
-              <i className="nes-logo"></i>
-              <strong> PHP,SQL:</strong> Collaborated with a team of five
-              students to develop an eCommerce website for the company “TUFIT
-              CYPRUS” and a “Clock In” application for the university, deisgned
-              to track employee attendance.
+              <strong>PHP,SQL:</strong> {t("education.bullet1")}
             </li>
             <li>
-              <i className="nes-logo"></i>
-              <strong> Thesis:</strong> Developed an aplication aimed at
-              combating loneliness among the elderly by matching with volunteers
-              through the platform, offering social interaction and
-              companionship. Built using ReactJs for the front-end, NodeJs &
-              ExpressJs for the backend and MongoDB for the database management.
-              The live site can be accessed at{" "}
+              <strong>{t("education.bullet2title")}</strong> {t("education.bullet2")}{" "}
               <a
                 href="https://graduateproject-8f797.web.app"
                 target="_blank"
@@ -42,51 +37,38 @@ function About() {
           </ul>
         </div>
       </div>
+
+      {/* EXPERIENCE */}
       <div className="nes-container is-rounded is-dark experience-container">
-        <h2 className="nes-text is-primary education-title ">
-          Work Experience
+        <h2 className="nes-text is-primary education-title">
+          {t("experience.title")}
         </h2>
-        <div className="experience-text">
-          <h3 className="nes-text is-success job-title">Lab Assistant</h3>
-          <h3 className="nes-text is-error company-name">
-            OneLearn Global Services Ltd
-          </h3>
-          <ul className="nes-list is-circle">
-            <li>
-              <i className="snes-jp-logo"></i>
-              <strong> </strong>
-              Responsible for copying data from a server to over 30 company made
-              mini PC by the name "Enza" for training purposes.{" "}
-            </li>
-            <li>
-              <i className="snes-jp-logo"></i>
-              <strong> </strong>
-              Responsible for assemblying hardware on a "Enza" as well as
-              installing OS and Microsoft Office apps depending on the client's
-              order.
-            </li>
-          </ul>
-        </div>
+
+        {/* First Job */}
         <div className="experience-text">
           <h3 className="nes-text is-success job-title">
-            Automation & Installation Assistant
+            {t("experience.title")}
           </h3>
           <h3 className="nes-text is-error company-name">
-            Piperaris Security Cyprus
+            {t("experience.job1Company")}
           </h3>
           <ul className="nes-list is-circle">
-            <li>
-              <i className="snes-logo"></i>
-              <strong> </strong>
-              Participated in KNX training sessions and gained hands-on
-              experience with automation tools.
-            </li>
-            <li>
-              <i className="snes-logo"></i>
-              <strong> </strong>
-              Configured, installed, and tested Electron switches, ensuring
-              their proper functionality.
-            </li>
+            <li>{t("experience.job1Bullet1")}</li>
+            <li>{t("experience.job1Bullet2")}</li>
+          </ul>
+        </div>
+
+        {/* Second Job */}
+        <div className="experience-text">
+          <h3 className="nes-text is-success job-title">
+            {t("experience.job2Title")}
+          </h3>
+          <h3 className="nes-text is-error company-name">
+            {t("experience.job2Company")}
+          </h3>
+          <ul className="nes-list is-circle">
+            <li>{t("experience.job2Bullet1")}</li>
+            <li>{t("experience.job2Bullet2")}</li>
           </ul>
         </div>
       </div>
