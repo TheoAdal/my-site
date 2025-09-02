@@ -20,7 +20,7 @@ jobs:
           node-version: 22.16.0 # Match local Node.js version
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build project
         run: CI=false npm run build
