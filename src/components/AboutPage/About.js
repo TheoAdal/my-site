@@ -1,10 +1,6 @@
 import React from "react";
 import "./About.css"; // import styles
 
-import photoprofile from "../../images/profilephoto.jpg";
-
-// import usePixelPerfectContainers from "../../utilities/usePixelPerfectContainers";
-
 function About() {
   // usePixelPerfectContainers();
   return (

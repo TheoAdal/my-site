@@ -7,6 +7,8 @@ import LogoutButton from "../auth-components/Logout.js";
 
 import "./TopBarNavStyles.css";
 
+import { useTranslation } from "react-i18next";
+
 export default function Topbar() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const user = useSelector((state) => state.auth.user); //user info from Redux
@@ -18,7 +20,7 @@ export default function Topbar() {
           <Link className="nes-text is-success" to="/about">About</Link>
           <Link className="nes-text is-warning" to="/contact">Contact</Link>
         </div>
-        {/* {!isAuthenticated ? (
+        {!isAuthenticated ? (
           <>
             <Link className="nes-text is-error" to="/login">Login</Link>
             <Link className="nes-text is-error" to="/register">Register</Link>
@@ -31,7 +33,7 @@ export default function Topbar() {
               <LogoutButton>Logout</LogoutButton>
             </div>
           </>
-        )} */}
+        )}
       </nav>
   );
 }
