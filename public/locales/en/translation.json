@@ -1,0 +1,40 @@
+{
+  "topbar": {
+    "home":"Home",
+    "about":"About",
+    "contact":"Contact",
+    "login":"Login",
+    "register":"Register",
+    "dashboard":"Dashboard",
+    "profile":"Profile",
+    "logout":"Logout"
+  },
+  "home": {
+    "welcome": "Hi there, I'm Theo!",
+    "intro1": "Just another CS-related graduate trying his absolute best. My journey in FullStack Development began roughly in 2023 through academic projects and has evolved into something I am really proud of.",
+    "intro2": "When I am not coding, you will probably find me on some camping site or a hopeless indie bar. My friends call me a chameleon when it comes to my entertainment.",
+    "intro3": "My goal is to broaden my curiosity about new technologies and never, ever settle down, always pushing myself to learn, build and explore the unknown!",
+    "projectsTitle": "All Projects",
+    "project1Title": "Architecture Firm Website",
+    "project1Desc": "Developed a website for an architecture firm, that showcases the firm's projects, services, and design philosophy. Built using ReactJS for the front end, NodeJS & ExpressJs for the back end, and AWS S3 for uploading and storing project images and files."
+  },
+  "education": {
+    "title": "Education",
+    "degree": "Computer Engineering & Informatics",
+    "university": "Cyprus University of Technology",
+    "bullet1": "Collaborated with a team of five students to develop an eCommerce website for the company “TUFIT CYPRUS” and a “Clock In” application for the university, designed to track employee attendance.",
+    "bullet2title": "Thesis:",
+    "bullet2": "Thesis: Developed an application aimed at combating loneliness among the elderly by matching with volunteers through the platform, offering social interaction and companionship. Built using ReactJs for the front-end, NodeJs & ExpressJs for the backend and MongoDB for the database management."
+  },
+  "experience": {
+    "title": "Work Experience",
+    "job1Title": "Lab Assistant",
+    "job1Company": "OneLearn Global Services Ltd",
+    "job1Bullet1": "Responsible for copying data from a server to over 30 company-made mini PCs by the name \"Enza\" for training purposes.",
+    "job1Bullet2": "Responsible for assembling hardware on an \"Enza\" as well as installing OS and Microsoft Office apps depending on the client's order.",
+    "job2Title": "Automation & Installation Assistant",
+    "job2Company": "Piperaris Security Cyprus",
+    "job2Bullet1": "Participated in KNX training sessions and gained hands-on experience with automation tools.",
+    "job2Bullet2": "Configured, installed, and tested Electron switches, ensuring their proper functionality."
+  }
+}

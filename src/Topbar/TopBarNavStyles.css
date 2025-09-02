@@ -16,15 +16,20 @@
 }
 
 .center-nav {
+  flex: 0; /* does not grow/shrink */
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
+  justify-content: center;
 }
 
 .right-nav {
-  position: absolute;
-  right: 1rem; /* stick to right */
-  /* display: flex; */
-  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.lang-btn {
+  padding: 0.3rem 0.8rem;
+  border: none;
+  cursor: pointer;
 }
 
 nav a {

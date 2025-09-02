@@ -1,21 +1,21 @@
-.Auth-form-container {
+.contact-form-container {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 4rem 2rem;
   min-height: 80vh;
-  background-color: #d31f1fd2;
+  background-color: #d31f1f77;
 }
 
-.Auth-form {
-  background-color: #fff;
+.Contact-form {
+  background-color: #ffffff;
   padding: 2rem 2.5rem;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
   max-width: 400px;   /* NES.css sweet spot */
   min-height: 500px;
 
-  .Auth-form-title {
+  .Contact-form-title {
     text-align: center;
     font-size: 1.8rem;
     color: #000000;
@@ -29,28 +29,14 @@
     width: 320px;
     height: 68px;
     }
-  }
-  
 
-
-  .form-group {
-    color:#000000;
-    font-size: 15px;
-    /* margin: 20px; */
-    /* font-size: 0.80rem; */
-    /* label {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    } */
-
-    input {
-      width: 100%;
-      padding: 0.75rem;
-      margin-top: 0.3rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+    textarea {
+      font-size: 1.3rem;  
+      width: 320px;
+      height: 68px;
     }
   }
+  
 
   .options {
     margin-top: 0rem;
@@ -63,8 +49,8 @@
   }
 
   .btn-primary {
-    width: 200px;
-    height: 60px;
+    width: 180px;
+    height: 68px;
     margin: 20px;
   }
 }

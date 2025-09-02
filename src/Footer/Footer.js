@@ -7,12 +7,12 @@ function Footer() {
       <div className="company-info">
         <div className="name-address flex flex-col items-start">
           <p>DevProfile</p>
-          <p>Doe Str. 92</p>
+          <p>Theodoros-Marios Adalakis</p>
         </div>
       </div>
       <div className="contact-info flex justify-end row">
         <div className="flex items-center justify-end">
-          <p className="pl-2">+30 XXXXXXXX</p>
+          <p className="pl-2">+30 6940680087</p>
         </div>
         <div className="flex items-center justify-end">
           <p className="pl-2">theoadal@gmail.gr</p>

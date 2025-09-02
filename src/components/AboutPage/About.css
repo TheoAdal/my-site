@@ -1,43 +1,61 @@
-.about-container {
+.about-wrap{
+  display: contents;
+}
+
+.education-container {
+  max-width: 1000px;
+  min-height: 568px;
   display: flex;
   align-items: center;     /* center vertically */
   justify-content: center; /* center horizontally */
   flex-wrap: wrap;         /* responsive on small screens */
-  max-width: 1000px;
   margin: 3rem auto;
   padding: 2rem;
 }
 
-.about-text {
-  flex: 1;
-  min-width: 280px;
-  margin-right: 2rem;
-  line-height: 1.6;
-}
-
-.about-text h1 {
-  margin-bottom: 1.5rem;
-  font-size: 1.4rem;
-}
-
-.about-text p {
-  text-align: left;
-  margin-bottom: 1rem;
-  font-size: 0.75rem;
-}
-
-.about-photo {
-  flex: 1;
-  min-width: 250px;
+.education-title {
   display: flex;
+  align-items: center;
   justify-content: center;
+  font-size: 1.5rem;
+  color: white; /* adjust if needed */
+  margin: 2rem 0;
+  text-align: center;
 }
 
-.avatar {
-  width: 250px;
-  height: 400px;
-  object-fit: cover;
-  /* circle shape for an avatar*/
-  /* border-radius: 50%; */ 
-  border: 4px solid #333;
+h2::before, h2::after {
+   content: "";
+    flex: 1 1;
+    border-bottom: 5px solid #ffffff;
+    width: 120px;
+    margin-right: 10px;
+    margin-left: 7px;
+}
+
+.education-text p, i, li{
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.diploma-title, .job-title {
+  margin-left:40px;
+  text-align: left;
+  font-size: 1.15rem;
+  }
+
+.university-name, .company-name {
+  margin-left:40px;
+  text-align: left;
+  font-size: 1rem;
+  }
+
+
+.experience-container {
+  max-width: 1000px;
+  min-height: 640px;
+  display: flex;
+  justify-content: center; /* center horizontally */
+  flex-wrap: wrap;         /* responsive on small screens */
+  margin: 3rem auto;
+  padding: 2rem;
 }
