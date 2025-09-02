@@ -9,34 +9,7 @@ function About() {
   // usePixelPerfectContainers();
   return (
     <div className="about-wrap">
-      <div className="nes-container is-rounded is-dark about-container pixel-perfect">
-        {/* OPENING */}
-        <div className="about-text">
-          <h1 className="nes-text is-primary">Hi there, I'm Theo!</h1>
-          <p>
-            Just another CS-related graduate trying his absolute best. My
-            journey in FullStack Development began roughly in 2023 through
-            academic projects and has evolved into something I am really proud
-            of.
-          </p>
-          <p>
-            When I am not coding, you will probably find me on some camping site
-            or a hopeless indie bar. My friends call me a chameleon when it
-            comes to my entertainment.
-          </p>
-          <p>
-            My goal is to broaden my curiosity about new technologies and never,
-            ever settle down, always pushing myself to learn, build and explore
-            the unknown!
-          </p>
-        </div>
-        {/* AVATAR */}
-        <div className="about-photo">
-          <img src={photoprofile} alt="" className="avatar" />
-        </div>
-      </div>
-      <div className="nes-container is-rounded is-dark education-container pixel-perfect">
-        {/* EDUCATION */}
+      <div className="nes-container is-rounded is-dark education-container ">
         <h2 className="nes-text is-primary education-title">Education</h2>
         <div className="education-text">
           <h3 className="nes-text is-success diploma-title">
@@ -84,13 +57,13 @@ function About() {
           </h3>
           <ul className="nes-list is-circle">
             <li>
-              <i className="nes-logo"></i>
+              <i className="snes-jp-logo"></i>
               <strong> </strong>
               Responsible for copying data from a server to over 30 company made
               mini PC by the name "Enza" for training purposes.{" "}
             </li>
             <li>
-              <i className="nes-logo"></i>
+              <i className="snes-jp-logo"></i>
               <strong> </strong>
               Responsible for assemblying hardware on a "Enza" as well as
               installing OS and Microsoft Office apps depending on the client's
@@ -107,13 +80,13 @@ function About() {
           </h3>
           <ul className="nes-list is-circle">
             <li>
-              <i className="nes-logo"></i>
+              <i className="snes-logo"></i>
               <strong> </strong>
               Participated in KNX training sessions and gained hands-on
               experience with automation tools.
             </li>
             <li>
-              <i className="nes-logo"></i>
+              <i className="snes-logo"></i>
               <strong> </strong>
               Configured, installed, and tested Electron switches, ensuring
               their proper functionality.

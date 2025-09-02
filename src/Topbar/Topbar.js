@@ -18,7 +18,7 @@ export default function Topbar() {
           <Link className="nes-text is-success" to="/about">About</Link>
           <Link className="nes-text is-warning" to="/contact">Contact</Link>
         </div>
-        {!isAuthenticated ? (
+        {/* {!isAuthenticated ? (
           <>
             <Link className="nes-text is-error" to="/login">Login</Link>
             <Link className="nes-text is-error" to="/register">Register</Link>
@@ -31,7 +31,7 @@ export default function Topbar() {
               <LogoutButton>Logout</LogoutButton>
             </div>
           </>
-        )}
+        )} */}
       </nav>
   );
 }
