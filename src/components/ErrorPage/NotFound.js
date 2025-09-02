@@ -7,7 +7,7 @@ const NotFound = () => {
 
   return (
     <div className="not-found">
-      <h1>{t("error.title")}</h1>
+      <h1>{t("error.title")}</h1> 
       <p>{t("error.text")}</p>
     </div>
   );
