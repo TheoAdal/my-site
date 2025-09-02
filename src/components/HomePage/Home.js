@@ -10,7 +10,7 @@ function Home() {
 
   return (
     <div className="home">
-      <h2 className="nes-text is-primary">Currently in local deployment</h2>
+      {/* <h2 className="nes-text is-primary">Currently in Main deployment</h2> */}
       <div className="nes-container is-rounded is-dark welcome-container">
         <div className="welcome-text">
           <h1 className="nes-text is-success">{t("home.welcome")}</h1>
