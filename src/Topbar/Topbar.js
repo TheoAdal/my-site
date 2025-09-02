@@ -50,7 +50,7 @@ export default function Topbar() {
         <button
             onClick={toggleLanguage}
             color="gray"
-            className="mr-4 mt-2 outline-none shadow-none"
+            className="nes-btn is-error lang-btn"
           >
             {currentLanguage === "en" ? "GR" : "EN"}
           </button>
